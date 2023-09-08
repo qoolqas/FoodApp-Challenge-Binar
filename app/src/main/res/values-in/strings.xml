@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FoodApp-Challenge-Binar</string>
+    <string name="text_resto_terdekat">Terdekat</string>
+    <string name="textpromo">Promo</string>
+    <string name="text_terlaris">Populer</string>
+    <string name="text_menu_hemat">Menu Hemat</string>
+    <string name="text_explore_menu_makanan">Explore Menu Makanan</string>
+    <string name="text_promo">Promo</string>
+    <string name="text_drink">Minuman</string>
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMenuCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_8_dp"
+        app:cardCornerRadius="@dimen/dimen_8_dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivMenuPicture"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/content_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_fried_chicken"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvMenuTitle"
+        style="@style/TextMedium14"
+        android:layout_width="@dimen/dimen_0_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16_dp"
+        android:layout_marginTop="@dimen/dimen_16_dp"
+        android:maxLines="2"
+        android:text="@string/text_fried_chicken_kriuk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cvMenuCard"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvMenuPrice"
+        style="@style/TextRegular12"
+        android:layout_width="@dimen/dimen_0_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_8_dp"
+        android:layout_marginBottom="@dimen/dimen_16_dp"
+        android:text="@string/text_rp_50_000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvMenuTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvMenuTitle" />
+</androidx.constraintlayout.widget.ConstraintLayout>

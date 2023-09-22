@@ -12,10 +12,16 @@
     <string name="text_banner_desc" translatable="false">Yuk segera manfaatkan promo spesial 9.9 kami! Dapatkan makanan lezat dengan harga terbaik hari ini. Jangan lewatkan kesempatan istimewa ini!</string>
     <string name="text_hai_raveendra" translatable="false">Hai Raveendra</string>
     <string name="text_membership_gold" translatable="false">Membership gold</string>
-    <string name="text_kebutuhan" translatable="false">Kebutuhan</string>
+    <string name="text_groceries" translatable="false">Kebutuhan</string>
     <string name="text_promo">Promo</string>
     <string name="text_drink">Drink</string>
     <string name="text_ayam_bakar_pak_haji" translatable="false">Ayam Bakar Pak haji</string>
     <string name="text_mie_goreng_jawa" translatable="false">Mie Goreng Jawa</string>
     <string name="text_dimsum_sinyo" translatable="false">Dimsum Sinyo</string>
+
+    <string name="text_1">1</string>
+    <string name="text_add_to_cart">Add To Cart - %s</string>
+    <string name="text_location_detail">%s (Click to see location)</string>
+    <string name="text_success_add_to_cart">Success put %s to Cart</string>
+    <string name="label_location">Location</string>
 </resources>

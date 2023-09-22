@@ -1,4 +1,4 @@
-package com.raveendra.foodapp_challenge_binar
+package com.raveendra.foodapp_challenge_binar.presentation.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

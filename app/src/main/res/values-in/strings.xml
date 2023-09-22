@@ -8,4 +8,9 @@
     <string name="text_explore_menu_makanan">Explore Menu Makanan</string>
     <string name="text_promo">Promo</string>
     <string name="text_drink">Minuman</string>
+    <string name="text_1">1</string>
+    <string name="text_add_to_cart">Tambah Ke Keranjang - %s</string>
+    <string name="text_location_detail">%s (Klik untuk melihat Lokasi)</string>
+    <string name="text_success_add_to_cart">Berhasil Memasukan %s Ke keranjang</string>
+    <string name="label_location">Lokasi</string>
 </resources>

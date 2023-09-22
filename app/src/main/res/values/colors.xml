@@ -22,4 +22,10 @@
     <color name="app_color_on_error">#FFFFFF</color>
     <color name="app_color_error_container">#FFE1E5</color>
     <color name="app_color_on_error_container">#BD1329</color>
+
+
+    <color name="red">#F64F50</color>
+    <color name="green">#73F598</color>
+    <color name="gray_background">#F3F3F3</color>
+
 </resources>

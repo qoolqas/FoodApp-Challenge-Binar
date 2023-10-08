@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
 
     <color name="app_color_primary">#454545</color>
     <color name="app_color_on_primary">#FF6000</color>
@@ -27,5 +28,7 @@
     <color name="red">#F64F50</color>
     <color name="green">#73F598</color>
     <color name="gray_background">#F3F3F3</color>
+    <color name="grey_border">#CCC3C3C3</color>
+    <color name="grey_text">#767676</color>
 
 </resources>

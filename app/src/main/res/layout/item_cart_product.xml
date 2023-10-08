@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/iv_product_image"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="H,1:1.3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_product_name"
+        style="@style/TextMedium16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/iv_product_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Ayam Golek" />
+
+    <TextView
+        android:id="@+id/tv_product_price"
+        style="@style/TextRegular14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@+id/et_notes_item"
+        app:layout_constraintEnd_toEndOf="@+id/tv_product_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_product_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_name"
+        tools:text="IDR. 20.000" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clPlusMinus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_16_dp"
+        android:layout_marginBottom="@dimen/dimen_16_dp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_product_image"
+        app:layout_constraintStart_toStartOf="@+id/iv_product_image"
+        app:layout_constraintTop_toBottomOf="@+id/iv_product_image">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clMinusQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded_stroke_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_24_dp"
+                android:layout_height="@dimen/dimen_24_dp"
+                android:src="@drawable/ic_minus"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvTotalQty"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/dimen_8_dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/clPlusQty"
+            app:layout_constraintStart_toEndOf="@+id/clMinusQty"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/text_1" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clPlusQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded_stroke_green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="40dp">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_24_dp"
+                android:layout_height="@dimen/dimen_24_dp"
+                android:src="@drawable/ic_plus"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_notes_item"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_button_rounded_border_transparent"
+        android:hint="@string/label_note"
+        android:layout_marginEnd="@dimen/dimen_16_dp"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:maxLines="3"
+        android:padding="8dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/clPlusMinus"
+        app:layout_constraintEnd_toStartOf="@+id/iv_product_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/clPlusMinus"
+        tools:text="aaaa" />
+</androidx.constraintlayout.widget.ConstraintLayout>

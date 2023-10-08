@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import coil.load
 import com.raveendra.foodapp_challenge_binar.databinding.ItemMenuGridBinding
 import com.raveendra.foodapp_challenge_binar.databinding.ItemMenuListBinding
-import com.raveendra.foodapp_challenge_binar.model.FoodResponse
+import com.raveendra.foodapp_challenge_binar.model.Food
 import com.raveendra.foodapp_challenge_binar.util.toIdrCurrency
 
 class HomeListAdapter(
     var viewType: Int,
-    private val onItemClick: (FoodResponse) -> Unit
+    private val onItemClick: (Food) -> Unit
 ) : RecyclerView.Adapter<ViewHolder>() {
 
     companion object {
@@ -22,17 +22,17 @@ class HomeListAdapter(
         const val VH_MENU_GRID = 2
     }
 
-    private val differ = AsyncListDiffer(this, object : DiffUtil.ItemCallback<FoodResponse>() {
-        override fun areItemsTheSame(oldItem: FoodResponse, newItem: FoodResponse): Boolean {
+    private val differ = AsyncListDiffer(this, object : DiffUtil.ItemCallback<Food>() {
+        override fun areItemsTheSame(oldItem: Food, newItem: Food): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: FoodResponse, newItem: FoodResponse): Boolean {
+        override fun areContentsTheSame(oldItem: Food, newItem: Food): Boolean {
             return oldItem.hashCode() == newItem.hashCode()
         }
     })
 
-    fun submitData(data: List<FoodResponse>) {
+    fun submitData(data: List<Food>) {
         differ.submitList(data)
     }
 
@@ -89,13 +89,13 @@ class HomeListAdapter(
 
 class HomeListViewHolder(
     private val binding: ItemMenuListBinding,
-    private val onItemClick: (FoodResponse) -> Unit
+    private val onItemClick: (Food) -> Unit
 ) : ViewHolder(binding.root) {
-    fun bind(item: FoodResponse) {
+    fun bind(item: Food) {
         binding.root.setOnClickListener {
             onItemClick.invoke(item)
         }
-        binding.ivMenuPicture.load(item.imageUrl) {
+        binding.ivMenuPicture.load(item.productImgUrl) {
             crossfade(true)
         }
         binding.tvMenuTitle.text = item.title
@@ -105,13 +105,13 @@ class HomeListViewHolder(
 
 class HomeGridViewHolder(
     private val binding: ItemMenuGridBinding,
-    private val onItemClick: (FoodResponse) -> Unit
+    private val onItemClick: (Food) -> Unit
 ) : ViewHolder(binding.root) {
-    fun bind(item: FoodResponse) {
+    fun bind(item: Food) {
         binding.root.setOnClickListener {
             onItemClick.invoke(item)
         }
-        binding.ivMenuPicture.load(item.imageUrl) {
+        binding.ivMenuPicture.load(item.productImgUrl) {
             crossfade(true)
         }
         binding.tvMenuTitle.text = item.title

@@ -11,6 +11,25 @@
     <string name="text_1">1</string>
     <string name="text_add_to_cart">Tambah Ke Keranjang - %s</string>
     <string name="text_location_detail">%s (Klik untuk melihat Lokasi)</string>
-    <string name="text_success_add_to_cart">Berhasil Memasukan %s Ke keranjang</string>
+    <string name="text_success_add_to_cart">Berhasil Memasukan Item Ke keranjang</string>
     <string name="label_location">Lokasi</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_cart">Keranjang</string>
+    <string name="title_checkout">Pesan</string>
+    <string name="title_notifications">Notifikasi</string>
+    <string name="label_empty_state">Data Kosong</string>
+    <string name="label_profile_name">Nama</string>
+    <string name="label_profile_phone">Nomor Ponsel</string>
+    <string name="title_profile">Profil</string>
+    <string name="label_checkout_success">Berhasil Checkout Makananmu</string>
+    <string name="label_something_wrong">Terjadi kesalahan</string>
+    <string name="label_note">Note</string>
+    <string name="label_total">Total Harga</string>
+    <string name="label_checkout">Pesan</string>
+    <string name="label_delivery_method">Metode Pengiriman</string>
+    <string name="label_payment_method">Metode Pembayaran</string>
+    <string name="label_take_out">Ambil Sendiri</string>
+    <string name="label_delivery">Dikirim</string>
+    <string name="label_cash">Tunai</string>
+    <string name="label_emoney">Dompet Digital</string>
 </resources>

@@ -1,21 +1,28 @@
 package com.raveendra.foodapp_challenge_binar.presentation.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.raveendra.foodapp_challenge_binar.data.FoodDataSource
-import com.raveendra.foodapp_challenge_binar.data.FoodDataSourceImpl
-import com.raveendra.foodapp_challenge_binar.model.FoodResponse
+import androidx.lifecycle.viewModelScope
+import com.raveendra.foodapp_challenge_binar.data.local.datastore.UserPreferenceDataSource
+import com.raveendra.foodapp_challenge_binar.data.repository.FoodRepository
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(
+    repo: FoodRepository,
+    private val userPreferenceDataSource: UserPreferenceDataSource
+) : ViewModel() {
+    val foodData = repo.getFoods()
 
-    private val foodDataSource: FoodDataSource = FoodDataSourceImpl()
+    val userListMenuPref = userPreferenceDataSource.getUserListMenuPrefFlow()
 
-    private val _foodData = MutableLiveData<List<FoodResponse>>()
-    val foodData: LiveData<List<FoodResponse>> get() = _foodData
-
-    fun fetchFoodData() {
-        val data = foodDataSource.getFoodData()
-        _foodData.postValue(data)
+    val combinedFlow = foodData.combine(userListMenuPref) { foodList, userLayoutPref ->
+        Pair(foodList, userLayoutPref)
     }
+
+    fun setUserLayoutMenuPref(layoutMenuType: Int) {
+        viewModelScope.launch {
+            userPreferenceDataSource.setUserLayoutMenuPref(layoutMenuType)
+        }
+    }
+
 }

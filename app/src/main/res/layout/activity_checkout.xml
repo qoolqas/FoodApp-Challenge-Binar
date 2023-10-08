@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/inclToolbar"
+        layout="@layout/layout_general_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginVertical="@dimen/dimen_8_dp"
+        app:layout_constraintBottom_toTopOf="@+id/cv_section_checkout"
+        app:layout_constraintTop_toBottomOf="@+id/inclToolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16_dp"
+                android:paddingHorizontal="@dimen/dimen_16_dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/TextMedium16"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/label_delivery_method" />
+
+                <RadioGroup
+                    android:id="@+id/toggle"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="@dimen/dimen_8_dp"
+                    android:background="@drawable/bg_orange_outline"
+                    android:checkedButton="@+id/offer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/textView3">
+
+                    <RadioButton
+                        android:id="@+id/search"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/label_take_out"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/offer"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/label_delivery"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_cart"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/dimen_8_dp"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/dimen_8_dp"
+                android:paddingTop="@dimen/dimen_16_dp"
+                android:paddingBottom="16dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_cart_product_order" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8_dp"
+                android:paddingHorizontal="@dimen/dimen_16_dp"
+                app:layout_constraintTop_toBottomOf="@+id/rv_cart">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    style="@style/TextMedium16"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/label_payment_method" />
+
+                <RadioGroup
+                    android:id="@+id/rgPayment"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="@dimen/dimen_8_dp"
+                    android:background="@drawable/bg_orange_outline"
+                    android:orientation="horizontal"
+                    android:checkedButton="@+id/offer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView4">
+
+                    <RadioButton
+                        android:id="@+id/rbCash"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/label_cash"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/rbEmoney"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/toggle_widget_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/label_emoney"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <include
+        android:id="@+id/cartState"
+        layout="@layout/layout_empty_state"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/cv_section_checkout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_section_checkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/tv_label_total_price"
+                style="@style/TextMedium16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/label_total"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_total_price"
+                style="@style/TextRegular14"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_label_total_price"
+                tools:text="Rp 80.000.000" />
+
+            <Button
+                android:id="@+id/btn_checkout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16_dp"
+                android:text="@string/label_checkout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_total_price" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

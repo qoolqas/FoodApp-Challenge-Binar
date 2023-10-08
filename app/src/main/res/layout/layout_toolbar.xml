@@ -20,29 +20,29 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/bg_search"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/appCompatImageView2"
+            app:layout_constraintEnd_toStartOf="@+id/ivToolbarCart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:queryHint="Mau makan apa hari ini?"
             app:searchIcon="@drawable/ic_search" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/appCompatImageView"
+            android:id="@+id/ivToolbarProfile"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_user"
-            app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView2"
+            app:layout_constraintBottom_toBottomOf="@+id/ivToolbarCart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/appCompatImageView2" />
+            app:layout_constraintTop_toTopOf="@+id/ivToolbarCart" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/appCompatImageView2"
+            android:id="@+id/ivToolbarCart"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="16dp"
             android:src="@drawable/ic_shopping_cart"
             app:layout_constraintBottom_toBottomOf="@+id/searchView"
-            app:layout_constraintEnd_toStartOf="@+id/appCompatImageView"
+            app:layout_constraintEnd_toStartOf="@+id/ivToolbarProfile"
             app:layout_constraintTop_toTopOf="@+id/searchView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

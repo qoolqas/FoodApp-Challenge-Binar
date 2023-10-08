@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs")
-
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -42,6 +42,8 @@ android {
 }
 
 dependencies {
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     val nav_version = "2.7.2"
 
     implementation("androidx.core:core-ktx:1.9.0")
@@ -63,4 +65,11 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.1")
     //fragment ktx
     implementation("androidx.fragment:fragment-ktx:1.6.1")
+
+    //room database libraries
+    implementation("androidx.room:room-ktx:2.5.2")
+    ksp("androidx.room:room-compiler:2.5.2")
+
+    //data store
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 }

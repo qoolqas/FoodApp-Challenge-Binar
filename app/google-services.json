@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1091401718058",
+    "project_id": "foodapp-challenge-binar",
+    "storage_bucket": "foodapp-challenge-binar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091401718058:android:313a931463970d0ca9e653",
+        "android_client_info": {
+          "package_name": "com.raveendra.foodapp_challenge_binar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE-CtX0_4LbC1z9vADn6PRTQ5aZYR5M5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

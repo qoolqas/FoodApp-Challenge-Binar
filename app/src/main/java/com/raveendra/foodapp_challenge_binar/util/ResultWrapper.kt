@@ -48,7 +48,7 @@ suspend fun <T> proceed(block: suspend () -> T): ResultWrapper<T> {
     }
 }
 
-suspend fun <T> proceedFlow(block: suspend () -> T): Flow<ResultWrapper<T>> {
+fun <T> proceedFlow(block: suspend () -> T): Flow<ResultWrapper<T>> {
     return flow<ResultWrapper<T>> {
         val result = block.invoke()
         emit(
@@ -59,7 +59,7 @@ suspend fun <T> proceedFlow(block: suspend () -> T): Flow<ResultWrapper<T>> {
             }
         )
     }.catch { e ->
-        ResultWrapper.Error<T>(exception = Exception(e))
+        emit(ResultWrapper.Error(exception = Exception(e)))
     }.onStart {
         emit(ResultWrapper.Loading())
     }

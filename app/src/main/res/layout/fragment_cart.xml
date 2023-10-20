@@ -25,9 +25,17 @@
         tools:itemCount="2"
         tools:listitem="@layout/item_cart_product" />
 
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inclToolbar" />
     <include
         android:id="@+id/cartState"
-        layout="@layout/layout_empty_state"
+        layout="@layout/layout_error_state"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:visibility="gone"

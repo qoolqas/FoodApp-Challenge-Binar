@@ -1,13 +1,15 @@
 package com.raveendra.foodapp_challenge_binar.presentation.profile
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.raveendra.foodapp_challenge_binar.data.repository.UserRepository
 
-class ProfileViewModel : ViewModel() {
+class ProfileViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+    fun getCurrentUser() = userRepository.getCurrentUser()
+
+    fun isUserLoggedIn() =  userRepository.isLoggedIn()
+
+    fun doLogout() {
+        userRepository.doLogout()
     }
-    val text: LiveData<String> = _text
 }

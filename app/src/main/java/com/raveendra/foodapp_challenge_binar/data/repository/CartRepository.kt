@@ -3,10 +3,12 @@ package com.raveendra.foodapp_challenge_binar.data.repository
 import com.raveendra.foodapp_challenge_binar.data.local.database.datasource.CartDataSource
 import com.raveendra.foodapp_challenge_binar.data.local.database.entity.CartEntity
 import com.raveendra.foodapp_challenge_binar.data.local.database.mapper.toCartEntity
-import com.raveendra.foodapp_challenge_binar.data.local.database.mapper.toCartProductList
+import com.raveendra.foodapp_challenge_binar.data.local.database.mapper.toCartList
+import com.raveendra.foodapp_challenge_binar.data.model.FoodViewParam
+import com.raveendra.foodapp_challenge_binar.data.network.api.datasource.FoodDataSource
+import com.raveendra.foodapp_challenge_binar.data.network.api.model.OrderItemRequest
+import com.raveendra.foodapp_challenge_binar.data.network.api.model.OrderRequest
 import com.raveendra.foodapp_challenge_binar.model.Cart
-import com.raveendra.foodapp_challenge_binar.model.CartProduct
-import com.raveendra.foodapp_challenge_binar.model.Food
 import com.raveendra.foodapp_challenge_binar.util.ResultWrapper
 import com.raveendra.foodapp_challenge_binar.util.proceed
 import com.raveendra.foodapp_challenge_binar.util.proceedFlow
@@ -16,42 +18,50 @@ import kotlinx.coroutines.flow.onStart
 
 
 interface CartRepository {
-    fun getUserCartData(): Flow<ResultWrapper<Pair<List<CartProduct>, Double>>>
-    suspend fun createCart(food: Food, totalQuantity: Int): Boolean
+    fun getUserCartData(): Flow<ResultWrapper<Pair<List<Cart>, Double>>>
+    suspend fun createCart(food: FoodViewParam, totalQuantity: Int): Boolean
     suspend fun decreaseCart(item: Cart): Flow<ResultWrapper<Boolean>>
     suspend fun increaseCart(item: Cart): Flow<ResultWrapper<Boolean>>
     suspend fun setCartNotes(item: Cart): Flow<ResultWrapper<Boolean>>
     suspend fun deleteCart(item: Cart): Flow<ResultWrapper<Boolean>>
     suspend fun deleteAllCart(): Flow<ResultWrapper<Boolean>>
+    suspend fun orderCart(items: List<Cart>, total : Int): Flow<ResultWrapper<Boolean>>
 }
 
 class CartRepositoryImpl(
-    private val dataSource: CartDataSource
+    private val dataSource: CartDataSource,
+    private val foodDataSource: FoodDataSource
 ) : CartRepository {
 
-    override fun getUserCartData(): Flow<ResultWrapper<Pair<List<CartProduct>, Double>>> {
+    override fun getUserCartData(): Flow<ResultWrapper<Pair<List<Cart>, Double>>> {
         return dataSource.getAllCarts().map {
             proceed {
-                val cartList = it.toCartProductList()
-                val totalPrice = cartList.sumOf {
-                    val quantity = it.cart.itemQuantity
-                    val pricePerItem = it.food.price
-                    quantity * pricePerItem
+                val result = it.toCartList()
+                val totalPrice = result.sumOf {
+                    val pricePerItem = it.price
+                    val quantity = it.itemQuantity
+                    pricePerItem * quantity
                 }
-                Pair(cartList, totalPrice)
+                Pair(result, totalPrice)
             }
         }.onStart {
             emit(ResultWrapper.Loading())
         }
     }
-    //gunakan di detail
+
     override suspend fun createCart(
-        food: Food,
+        food: FoodViewParam,
         totalQuantity: Int
-    ): Boolean{
-        return food.id?.let {
+    ): Boolean {
+        //masih belum bisa pake proceedFlow aneh
+        return food.nama?.let {
             val affectedRow = dataSource.insertCart(
-                CartEntity(foodId = it, itemQuantity = totalQuantity)
+                CartEntity(
+                    itemQuantity = totalQuantity,
+                    productImgUrl = food.imageUrl.orEmpty(),
+                    name = food.nama,
+                    price = food.harga ?: 0.0
+                )
             )
             affectedRow > 0
         } == true
@@ -67,8 +77,28 @@ class CartRepositoryImpl(
             proceedFlow { dataSource.updateCart(modifiedCart.toCartEntity()) > 0 }
         }
     }
+
     override suspend fun deleteAllCart(): Flow<ResultWrapper<Boolean>> {
         return proceedFlow { dataSource.deleteAllCart() > 0 }
+    }
+
+    override suspend fun orderCart(items: List<Cart>,total : Int): Flow<ResultWrapper<Boolean>> {
+        return proceedFlow {
+
+            val orderItems = items.map {
+                OrderItemRequest(
+                    catatan = it.itemNotes,
+                    harga = it.price,
+                    nama = it.name,
+                    qty = it.itemQuantity,
+                )
+            }
+            val orderRequest =
+                OrderRequest(username = "Raveendra", total = total, orderItemRequests = orderItems)
+
+            foodDataSource.postOrder(orderRequest).status == true
+        }
+
     }
 
     override suspend fun increaseCart(item: Cart): Flow<ResultWrapper<Boolean>> {

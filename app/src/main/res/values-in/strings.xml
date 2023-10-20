@@ -32,4 +32,16 @@
     <string name="label_delivery">Dikirim</string>
     <string name="label_cash">Tunai</string>
     <string name="label_emoney">Dompet Digital</string>
+    <string name="hint_name">Nama Kamu</string>
+    <string name="text_not_registered_yet_register_here">Belum Mendaftar? Daftar Disini</string>
+    <string name="text_already_have_an_account_click_here">Sudah punya akun ? Login Disini</string>
+    <string name="text_error_email_empty">Email tidak boleh kosong</string>
+    <string name="text_error_email_invalid">Masukan email yang valid</string>
+    <string name="text_error_password_empty">Password tidak boleh kosong</string>
+    <string name="text_error_password_less_than_8_char">Password tidaj bisa kurang dari 8 karakter</string>
+    <string name="text_password_does_not_match">Password tidak cocok</string>
+    <string name="text_error_name_cannot_empty">Nama tidak boleh kosong</string>
+    <string name="text_highlight_login_here">Login Disini</string>
+    <string name="text_highlight_register">Daftar Disini</string>
+    <string name="label_not_login">Anda belum login</string>
 </resources>

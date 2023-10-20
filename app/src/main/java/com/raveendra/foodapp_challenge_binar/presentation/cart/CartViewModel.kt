@@ -5,11 +5,12 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.raveendra.foodapp_challenge_binar.model.Cart
 import com.raveendra.foodapp_challenge_binar.data.repository.CartRepository
+import com.raveendra.foodapp_challenge_binar.data.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class CartViewModel(private val repo: CartRepository) : ViewModel() {
+class CartViewModel(private val repo: CartRepository, private val userRepository: UserRepository) : ViewModel() {
 
     val cartList = repo.getUserCartData().asLiveData(Dispatchers.IO)
 
@@ -22,5 +23,7 @@ class CartViewModel(private val repo: CartRepository) : ViewModel() {
     fun setCartNotes(item: Cart) {
         viewModelScope.launch { repo.setCartNotes(item).collect() }
     }
+
+    fun isUserLoggedIn() =  userRepository.isLoggedIn()
 
 }

@@ -53,4 +53,28 @@
     <string name="label_delivery">Delivery</string>
     <string name="label_emoney">E Money</string>
     <string name="label_cash">Cash</string>
+    <string name="label_okay" translatable="false">Okay</string>
+
+
+    <string name="hint_name">Your name</string>
+    <string name="hint_email" translatable="false">Email</string>
+    <string name="hint_password" translatable="false">Password</string>
+    <string name="hint_confirm_password" translatable="false">Confirm Password</string>
+
+    <string name="text_log_in" translatable="false">Log in</string>
+    <string name="text_not_registered_yet_register_here">Not registered yet ? Register Here</string>
+    <string name="text_already_have_an_account_click_here">Already have an Account ? Login Here</string>
+    <string name="text_error_email_empty">Email should not be empty</string>
+    <string name="text_error_email_invalid">Enter a valid format email</string>
+    <string name="text_error_password_empty">Password should not be empty</string>
+    <string name="text_error_password_less_than_8_char">Password cannot less than 8 character</string>
+    <string name="text_register" translatable="false">Register</string>
+    <string name="text_password_does_not_match">Password doesn\'t match</string>
+    <string name="text_error_name_cannot_empty">Name cannot be empty</string>
+    <string name="text_highlight_login_here">Login Here</string>
+    <string name="text_highlight_register">Register Here</string>
+    <string name="text_change_profile" translatable="false">Change Profile</string>
+    <string name="text_change_password" translatable="false">Change Password</string>
+    <string name="text_logout" translatable="false">Logout</string>
+    <string name="label_not_login">You\'re not login yet</string>
 </resources>

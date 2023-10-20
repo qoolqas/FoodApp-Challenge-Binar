@@ -7,14 +7,15 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import coil.load
+import com.raveendra.foodapp_challenge_binar.R
+import com.raveendra.foodapp_challenge_binar.data.model.FoodViewParam
 import com.raveendra.foodapp_challenge_binar.databinding.ItemMenuGridBinding
 import com.raveendra.foodapp_challenge_binar.databinding.ItemMenuListBinding
-import com.raveendra.foodapp_challenge_binar.model.Food
 import com.raveendra.foodapp_challenge_binar.util.toIdrCurrency
 
-class HomeListAdapter(
+class HomeFoodListAdapter(
     var viewType: Int,
-    private val onItemClick: (Food) -> Unit
+    private val onItemClick: (FoodViewParam) -> Unit
 ) : RecyclerView.Adapter<ViewHolder>() {
 
     companion object {
@@ -22,17 +23,17 @@ class HomeListAdapter(
         const val VH_MENU_GRID = 2
     }
 
-    private val differ = AsyncListDiffer(this, object : DiffUtil.ItemCallback<Food>() {
-        override fun areItemsTheSame(oldItem: Food, newItem: Food): Boolean {
-            return oldItem.id == newItem.id
+    private val differ = AsyncListDiffer(this, object : DiffUtil.ItemCallback<FoodViewParam>() {
+        override fun areItemsTheSame(oldItem: FoodViewParam, newItem: FoodViewParam): Boolean {
+            return oldItem.nama == newItem.nama
         }
 
-        override fun areContentsTheSame(oldItem: Food, newItem: Food): Boolean {
+        override fun areContentsTheSame(oldItem: FoodViewParam, newItem: FoodViewParam): Boolean {
             return oldItem.hashCode() == newItem.hashCode()
         }
     })
 
-    fun submitData(data: List<Food>) {
+    fun submitData(data: List<FoodViewParam>) {
         differ.submitList(data)
     }
 
@@ -89,32 +90,33 @@ class HomeListAdapter(
 
 class HomeListViewHolder(
     private val binding: ItemMenuListBinding,
-    private val onItemClick: (Food) -> Unit
+    private val onItemClick: (FoodViewParam) -> Unit
 ) : ViewHolder(binding.root) {
-    fun bind(item: Food) {
+    fun bind(item: FoodViewParam) {
         binding.root.setOnClickListener {
             onItemClick.invoke(item)
         }
-        binding.ivMenuPicture.load(item.productImgUrl) {
+        binding.ivMenuPicture.load(item.imageUrl) {
             crossfade(true)
         }
-        binding.tvMenuTitle.text = item.title
-        binding.tvMenuPrice.text = item.price.toIdrCurrency()
+        binding.tvMenuTitle.text = item.nama
+        binding.tvMenuPrice.text = (item.harga?.toIdrCurrency() ?: 0.0).toString()
     }
 }
 
 class HomeGridViewHolder(
     private val binding: ItemMenuGridBinding,
-    private val onItemClick: (Food) -> Unit
+    private val onItemClick: (FoodViewParam) -> Unit
 ) : ViewHolder(binding.root) {
-    fun bind(item: Food) {
+    fun bind(item: FoodViewParam) {
         binding.root.setOnClickListener {
             onItemClick.invoke(item)
         }
-        binding.ivMenuPicture.load(item.productImgUrl) {
+        binding.ivMenuPicture.load(item.imageUrl) {
             crossfade(true)
+            error(R.drawable.img_placeholder)
         }
-        binding.tvMenuTitle.text = item.title
-        binding.tvMenuPrice.text = item.price.toIdrCurrency()
+        binding.tvMenuTitle.text = item.nama
+        binding.tvMenuPrice.text = (item.harga?.toIdrCurrency() ?: 0.0).toString()
     }
 }

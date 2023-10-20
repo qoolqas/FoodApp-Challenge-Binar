@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clSectionHeader"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -74,176 +75,39 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/appCompatImageView3">
 
-                <androidx.constraintlayout.helper.widget.Flow
-                    android:layout_width="0dp"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCategory"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    app:constraint_referenced_ids="cvHeaderPromo,cvHeaderClosest,cvHeaderGrocery,cvHeaderDrink"
-                    app:flow_horizontalGap="8dp"
-                    app:flow_horizontalStyle="spread_inside"
-                    app:flow_verticalGap="16dp"
-                    app:flow_wrapMode="aligned"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/dimen_16_dp"
+                    android:paddingBottom="16dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_menu_category" />
+
+
+                <ProgressBar
+                    android:id="@+id/pbFoodRv"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="@dimen/dimen_16_dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cvHeaderPromo"
-                    android:layout_width="0dp"
+                <include
+                    android:id="@+id/inclErrorState"
+                    layout="@layout/layout_error_state"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="8dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:id="@+id/ivHeaderPromo"
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:contentDescription="@string/content_description"
-                            android:padding="6dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ic_promo"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            style="@style/TextAppearance.Material3.BodySmall"
-                            android:layout_width="64dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="4dp"
-                            android:layout_marginVertical="4dp"
-                            android:ellipsize="end"
-                            android:maxLines="2"
-                            android:text="@string/text_promo"
-                            android:textAlignment="center"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@+id/ivHeaderPromo"
-                            app:layout_constraintStart_toStartOf="@+id/ivHeaderPromo"
-                            app:layout_constraintTop_toBottomOf="@+id/ivHeaderPromo" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cvHeaderClosest"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="8dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:id="@+id/ivHeaderClosest"
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:contentDescription="@string/content_description"
-                            android:padding="6dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ic_location"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            style="@style/TextAppearance.Material3.BodySmall"
-                            android:layout_width="64dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="4dp"
-                            android:layout_marginVertical="4dp"
-                            android:ellipsize="end"
-                            android:maxLines="2"
-                            android:text="@string/text_resto_terdekat"
-                            android:textAlignment="center"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@+id/ivHeaderClosest"
-                            app:layout_constraintStart_toStartOf="@+id/ivHeaderClosest"
-                            app:layout_constraintTop_toBottomOf="@+id/ivHeaderClosest" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cvHeaderGrocery"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="8dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:id="@+id/ivHeaderGrocery"
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:contentDescription="@string/content_description"
-                            android:padding="6dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ic_grocery"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            style="@style/TextAppearance.Material3.BodySmall"
-                            android:layout_width="64dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="4dp"
-                            android:layout_marginVertical="4dp"
-                            android:ellipsize="end"
-                            android:maxLines="2"
-                            android:text="@string/text_groceries"
-                            android:textAlignment="center"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@+id/ivHeaderGrocery"
-                            app:layout_constraintStart_toStartOf="@+id/ivHeaderGrocery"
-                            app:layout_constraintTop_toBottomOf="@+id/ivHeaderGrocery" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cvHeaderDrink"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="8dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:id="@+id/ivHeaderDrink"
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:contentDescription="@string/content_description"
-                            android:padding="6dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ic_drink"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            style="@style/TextAppearance.Material3.BodySmall"
-                            android:layout_width="64dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="4dp"
-                            android:layout_marginVertical="4dp"
-                            android:ellipsize="end"
-                            android:maxLines="2"
-                            android:text="@string/text_drink"
-                            android:textAlignment="center"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@+id/ivHeaderDrink"
-                            app:layout_constraintStart_toStartOf="@+id/ivHeaderDrink"
-                            app:layout_constraintTop_toBottomOf="@+id/ivHeaderDrink" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
+                    android:layout_marginTop="@dimen/dimen_16_dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:visibility="gone"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

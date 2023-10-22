@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FoodApp-Challenge-Binar</string>
-    <string name="text_resto_terdekat">Terdekat</string>
-    <string name="textpromo">Promo</string>
-    <string name="text_terlaris">Populer</string>
-    <string name="text_menu_hemat">Menu Hemat</string>
     <string name="text_explore_menu_makanan">Explore Menu Makanan</string>
     <string name="text_promo">Promo</string>
-    <string name="text_drink">Minuman</string>
     <string name="text_1">1</string>
     <string name="text_add_to_cart">Tambah Ke Keranjang - %s</string>
     <string name="text_location_detail">%s (Klik untuk melihat Lokasi)</string>
@@ -16,10 +11,8 @@
     <string name="title_home">Beranda</string>
     <string name="title_cart">Keranjang</string>
     <string name="title_checkout">Pesan</string>
-    <string name="title_notifications">Notifikasi</string>
     <string name="label_empty_state">Data Kosong</string>
     <string name="label_profile_name">Nama</string>
-    <string name="label_profile_phone">Nomor Ponsel</string>
     <string name="title_profile">Profil</string>
     <string name="label_checkout_success">Berhasil Checkout Makananmu</string>
     <string name="label_something_wrong">Terjadi kesalahan</string>

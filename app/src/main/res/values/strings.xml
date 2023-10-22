@@ -1,9 +1,5 @@
 <resources>
     <string name="app_name">FoodApp-Challenge-Binar</string>
-    <string name="text_resto_terdekat">Closest</string>
-    <string name="textpromo">Promo</string>
-    <string name="text_terlaris">Popular</string>
-    <string name="text_menu_hemat">Cheap Menu</string>
     <string name="content_description" translatable="false">Image</string>
     <string name="text_fried_chicken_kriuk" translatable="false">Fried Chicken Kriuk</string>
     <string name="text_rp_50_000" translatable="false">Rp 50.000</string>
@@ -12,12 +8,7 @@
     <string name="text_banner_desc" translatable="false">Yuk segera manfaatkan promo spesial 9.9 kami! Dapatkan makanan lezat dengan harga terbaik hari ini. Jangan lewatkan kesempatan istimewa ini!</string>
     <string name="text_hai_raveendra" translatable="false">Hai Raveendra</string>
     <string name="text_membership_gold" translatable="false">Membership gold</string>
-    <string name="text_groceries" translatable="false">Kebutuhan</string>
     <string name="text_promo">Promo</string>
-    <string name="text_drink">Drink</string>
-    <string name="text_ayam_bakar_pak_haji" translatable="false">Ayam Bakar Pak haji</string>
-    <string name="text_mie_goreng_jawa" translatable="false">Mie Goreng Jawa</string>
-    <string name="text_dimsum_sinyo" translatable="false">Dimsum Sinyo</string>
 
     <string name="text_1">1</string>
     <string name="text_add_to_cart">Add To Cart - %s</string>
@@ -28,16 +19,12 @@
     <string name="title_home">Home</string>
     <string name="title_cart">Cart</string>
     <string name="title_checkout">Checkout</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="label_total_quantity" translatable="false">x%s</string>
     <string name="label_empty_state">Data Empty</string>
 
     <string name="label_profile_name">Name</string>
     <string name="label_profile_name_value" translatable="false">Raveendra Dimsum</string>
     <string name="label_profile_email" translatable="false">Email</string>
     <string name="label_profile_email_value" translatable="false">qoolqas@gmail.com</string>
-    <string name="label_profile_phone">Phone Number</string>
-    <string name="label_profile_phone_value" translatable="false">08959292929</string>
 
     <string name="title_profile">Profile</string>
     <string name="label_checkout_success">Success Checkout your food</string>
@@ -73,8 +60,5 @@
     <string name="text_error_name_cannot_empty">Name cannot be empty</string>
     <string name="text_highlight_login_here">Login Here</string>
     <string name="text_highlight_register">Register Here</string>
-    <string name="text_change_profile" translatable="false">Change Profile</string>
-    <string name="text_change_password" translatable="false">Change Password</string>
-    <string name="text_logout" translatable="false">Logout</string>
     <string name="label_not_login">You\'re not login yet</string>
 </resources>

@@ -79,8 +79,12 @@ class CheckoutActivity : BaseViewModelActivity<CheckoutViewModel, ActivityChecko
                             getString(R.string.label_checkout_success),
                             Toast.LENGTH_SHORT
                         ).show()
+                        viewModel.deleteAllCart()
                         showDialogCheckout()
-                    }
+                    },
+                    doOnError = {
+                        Toast.makeText(this@CheckoutActivity, getString(R.string.label_something_wrong), Toast.LENGTH_SHORT).show()
+                    },
                 )
             }
         }
@@ -122,7 +126,6 @@ class CheckoutActivity : BaseViewModelActivity<CheckoutViewModel, ActivityChecko
         AlertDialog.Builder(this)
             .setMessage("Checkout Success")
             .setPositiveButton(getString(R.string.label_okay)) { _, _ ->
-                viewModel.deleteAllCart()
                 finish()
             }
     }

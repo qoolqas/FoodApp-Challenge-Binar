@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "FoodApp-Challenge-Binar"
 include(":app")
- 
+include(":data-layer")

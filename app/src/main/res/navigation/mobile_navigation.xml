@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.raveendra.foodapp_challenge_binar.presentation.home.HomeFragment"
+        android:name="com.raveendra.foodapp.presentation.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -29,13 +29,13 @@
 
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="com.raveendra.foodapp_challenge_binar.presentation.cart.CartFragment"
+        android:name="com.raveendra.foodapp.presentation.cart.CartFragment"
         android:label="@string/title_cart"
         tools:layout="@layout/fragment_cart" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.raveendra.foodapp_challenge_binar.presentation.profile.ProfileFragment"
+        android:name="com.raveendra.foodapp.presentation.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

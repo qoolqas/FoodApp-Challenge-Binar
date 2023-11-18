@@ -87,6 +87,7 @@ class CartFragment : BaseFragment<FragmentCartBinding>() {
                 doOnError = { err ->
                     cartState.root.isVisible = true
                     cartState.tvError.isVisible = true
+                    cartState.ivError.isVisible = true
                     cartState.tvError.text = err.exception?.message.orEmpty()
                     pbLoading.isVisible = false
                 },
@@ -97,7 +98,7 @@ class CartFragment : BaseFragment<FragmentCartBinding>() {
                 doOnEmpty = {
                     cartState.root.isVisible = true
                     cartState.tvError.isVisible = true
-                    cartState.ivError.isVisible = false
+                    cartState.ivError.isVisible = true
                     cartState.tvError.text = getString(R.string.label_empty_state)
                     pbLoading.isVisible = false
                 }

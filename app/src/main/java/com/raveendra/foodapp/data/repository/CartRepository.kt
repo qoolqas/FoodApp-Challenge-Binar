@@ -13,6 +13,7 @@ import com.raveendra.foodapp.util.ResultWrapper
 import com.raveendra.foodapp.util.proceed
 import com.raveendra.foodapp.util.proceedFlow
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 
@@ -23,7 +24,7 @@ interface CartRepository {
     suspend fun increaseCart(item: Cart): Flow<ResultWrapper<Boolean>>
     suspend fun setCartNotes(item: Cart): Flow<ResultWrapper<Boolean>>
     suspend fun deleteCart(item: Cart): Flow<ResultWrapper<Boolean>>
-    suspend fun deleteAllCart(): Flow<ResultWrapper<Boolean>>
+    suspend fun deleteAllCart()
     suspend fun orderCart(items: List<Cart>, total: Int): Flow<ResultWrapper<Boolean>>
 }
 
@@ -43,6 +44,14 @@ class CartRepositoryImpl(
                 }
                 Pair(result, totalPrice)
             }
+        }.map {
+            if (it.payload?.first?.isEmpty() == true) {
+                ResultWrapper.Empty(it.payload)
+            } else {
+                it
+            }
+        }.catch {
+            emit(ResultWrapper.Error(exception = Exception(it)))
         }.onStart {
             emit(ResultWrapper.Loading())
         }
@@ -77,8 +86,8 @@ class CartRepositoryImpl(
         }
     }
 
-    override suspend fun deleteAllCart(): Flow<ResultWrapper<Boolean>> {
-        return proceedFlow { dataSource.deleteAllCart() > 0 }
+    override suspend fun deleteAllCart() {
+        return dataSource.deleteAllCart()
     }
 
     override suspend fun orderCart(items: List<Cart>, total: Int): Flow<ResultWrapper<Boolean>> {

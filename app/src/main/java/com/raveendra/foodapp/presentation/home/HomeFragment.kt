@@ -43,6 +43,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.inclToolbar.tvTitle.text = getString(R.string.title_home)
         homeViewModel.getCategory()
         homeViewModel.getFoods()
         observeData()

@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.raveendra.foodapp.R
 import com.raveendra.foodapp.databinding.ActivityCheckoutBinding
+import com.raveendra.foodapp.presentation.HomeActivity
 import com.raveendra.foodapp.presentation.base.BaseViewModelActivity
 import com.raveendra.foodapp.presentation.cart.CartListAdapter
 import com.raveendra.foodapp.util.proceedWhen
@@ -91,8 +92,6 @@ class CheckoutActivity : BaseViewModelActivity<CheckoutViewModel, ActivityChecko
                     binding.pbLoading.isVisible = false
                 },
                 doOnLoading = {
-                    binding.cartState.root.isVisible = true
-                    binding.cartState.tvError.isVisible = false
                     binding.pbLoading.isVisible = true
                     binding.rvCart.isVisible = false
                 },
@@ -112,7 +111,11 @@ class CheckoutActivity : BaseViewModelActivity<CheckoutViewModel, ActivityChecko
             .setCancelable(false)
             .setPositiveButton(getString(R.string.label_okay)) { _, _ ->
                 viewModel.deleteAllCart()
-                finish()
+                startActivity(
+                    Intent(this, HomeActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    }
+                )
             }.create().show()
     }
 }
